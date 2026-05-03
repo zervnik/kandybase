@@ -510,6 +510,16 @@
     input:focus, textarea:focus, select:focus { border-color: rgba(98,221,255,.58); }
     textarea { min-height: 145px; resize: vertical; }
 
+    .form-status {
+      min-height: 24px;
+      margin: 2px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .form-status.success { color: var(--green); }
+    .form-status.error { color: #ff9aab; }
+
     .footer {
       padding: 28px 0;
       border-top: 1px solid rgba(255,255,255,.08);
@@ -706,11 +716,10 @@
         <div class="contact-card">
           <h2>Have a platform worth building?</h2>
           <p class="muted">Talk to Kandybase about partnerships, platform concepts, market gaps, MVPs, local launch opportunities, or digital systems that need a serious operating layer.</p>
-          <form action="https://formsubmit.co/zervnik@gmail.com" method="POST">
+          <form id="contactForm" action="https://formsubmit.co/ajax/zervnik@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Kandybase website message" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://kandybase.com/thank-you.html" />
             <input type="text" name="name" placeholder="Name" required />
             <input type="email" name="email" placeholder="Email" required />
             <select name="topic" required>
@@ -723,6 +732,7 @@
             </select>
             <textarea name="message" placeholder="Tell us what you want to build, fix, launch, or explore." required></textarea>
             <button class="btn primary" type="submit">Send message</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -737,6 +747,39 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const button = contactForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Message failed');
+
+        contactForm.reset();
+        formStatus.className = 'form-status success';
+        formStatus.textContent = 'Message sent. Thank you for reaching out.';
+      } catch (error) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Message could not be sent. Please try again.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Send message';
+      }
+    });
   </script>
 </body>
 </html>
