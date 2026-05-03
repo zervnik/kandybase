@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kandybase - Build the thing behind the idea.</title>
   <meta name="description" content="Kandybase is a Cyprus-based startup studio and platform group building practical digital systems for real-world markets." />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <style>
     :root {
       --bg: #020204;
@@ -469,10 +471,8 @@
     }
 
     .contact {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
+      max-width: 820px;
+      margin: 0 auto;
     }
 
     .contact-card {
@@ -489,22 +489,7 @@
       margin: 0 0 18px;
     }
 
-    .contact-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255,255,255,.09);
-      color: var(--muted);
-    }
-
-    .contact-item b { color: var(--text); }
+    .contact-card form { margin-top: 24px; }
 
     form {
       display: grid;
@@ -534,7 +519,7 @@
 
     .footer-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 18px;
       flex-wrap: wrap;
     }
@@ -610,17 +595,17 @@
 
         <div class="cards">
           <article class="card">
-            <div class="icon-box">⌁</div>
+            <div class="icon-box">~</div>
             <h3>Market platforms</h3>
             <p>Systems that connect supply and demand: listings, discovery, onboarding, profiles, availability, bookings, reviews, and transaction logic.</p>
           </article>
           <article class="card">
-            <div class="icon-box">▣</div>
+            <div class="icon-box">[]</div>
             <h3>Operational tools</h3>
             <p>Dashboards, admin panels, roles, permissions, workflows, status logic, reporting, and the internal controls needed to run the platform properly.</p>
           </article>
           <article class="card">
-            <div class="icon-box">◇</div>
+            <div class="icon-box">&lt;&gt;</div>
             <h3>Launchable MVPs</h3>
             <p>Lean first versions designed to enter the market, collect feedback, prove demand, and evolve through real usage instead of endless theory.</p>
           </article>
@@ -636,16 +621,16 @@
             <p class="muted">We think through the full structure behind a digital product before it becomes a screen: roles, incentives, edge cases, revenue model, operator tools, workflows, user journeys, and the first practical route into market.</p>
           </div>
           <div class="cap-grid">
-            <div class="cap"><span class="check">✓</span><span>Platform strategy and MVP scoping</span></div>
-            <div class="cap"><span class="check">✓</span><span>Booking and reservation systems</span></div>
-            <div class="cap"><span class="check">✓</span><span>Marketplace and listing logic</span></div>
-            <div class="cap"><span class="check">✓</span><span>Admin dashboards and control panels</span></div>
-            <div class="cap"><span class="check">✓</span><span>Role-based permissions and user management</span></div>
-            <div class="cap"><span class="check">✓</span><span>Payment, billing, invoicing, and fee logic</span></div>
-            <div class="cap"><span class="check">✓</span><span>Reviews, ratings, trust, and moderation flows</span></div>
-            <div class="cap"><span class="check">✓</span><span>Analytics, reporting, and performance visibility</span></div>
-            <div class="cap"><span class="check">✓</span><span>Venue, seller, partner, and agent onboarding</span></div>
-            <div class="cap"><span class="check">✓</span><span>Local market launch planning and iteration</span></div>
+            <div class="cap"><span class="check">+</span><span>Platform strategy and MVP scoping</span></div>
+            <div class="cap"><span class="check">+</span><span>Booking and reservation systems</span></div>
+            <div class="cap"><span class="check">+</span><span>Marketplace and listing logic</span></div>
+            <div class="cap"><span class="check">+</span><span>Admin dashboards and control panels</span></div>
+            <div class="cap"><span class="check">+</span><span>Role-based permissions and user management</span></div>
+            <div class="cap"><span class="check">+</span><span>Payment, billing, invoicing, and fee logic</span></div>
+            <div class="cap"><span class="check">+</span><span>Reviews, ratings, trust, and moderation flows</span></div>
+            <div class="cap"><span class="check">+</span><span>Analytics, reporting, and performance visibility</span></div>
+            <div class="cap"><span class="check">+</span><span>Venue, seller, partner, and agent onboarding</span></div>
+            <div class="cap"><span class="check">+</span><span>Local market launch planning and iteration</span></div>
           </div>
         </div>
       </div>
@@ -721,16 +706,6 @@
         <div class="contact-card">
           <h2>Have a platform worth building?</h2>
           <p class="muted">Talk to Kandybase about partnerships, platform concepts, market gaps, MVPs, local launch opportunities, or digital systems that need a serious operating layer.</p>
-          <div class="contact-list">
-            <div class="contact-item"><span>Email</span><b>hello@kandybase.com</b></div>
-            <div class="contact-item"><span>Website</span><b>kandybase.com</b></div>
-            <div class="contact-item"><span>Location</span><b>Cyprus</b></div>
-            <div class="contact-item"><span>Focus</span><b>Platform solutions</b></div>
-            <div class="contact-item"><span>Social</span><b>LinkedIn / Instagram / X</b></div>
-          </div>
-        </div>
-
-        <div class="contact-card">
           <form action="https://formsubmit.co/zervnik@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Kandybase website message" />
             <input type="hidden" name="_captcha" value="false" />
@@ -755,8 +730,7 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Kandybase. Built in Cyprus.</span>
-      <span>Build the thing behind the idea.</span>
+      <span>(c) <span id="year"></span> Kandybase. Build the thing behind the idea.</span>
     </div>
   </footer>
 
